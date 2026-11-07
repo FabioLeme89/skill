@@ -1,0 +1,240 @@
+/* ============================================================
+   TOKENS — Landing Page Design System
+   Copie este arquivo para o novo projeto e preencha os blocos
+   marcados /* BRAND *\/. Os blocos /* STRUCTURE *\/ já vêm prontos
+   e não devem ser alterados sem motivo de layout específico.
+   ============================================================ */
+
+:root {
+  /* ---------------- BRAND: paleta ----------------
+     Defina aqui a cor de destaque, gradiente, fundo e superfícies
+     do projeto. Nenhum valor abaixo é definitivo. */
+  --brand-accent: #REPLACE;
+  --brand-accent-light: #REPLACE;
+  --brand-grad: linear-gradient(120deg, var(--brand-accent), var(--brand-accent-light));
+
+  --bg: #REPLACE;
+  --surface-1: #REPLACE;
+  --surface-2: #REPLACE;
+  --surface-3: #REPLACE;
+
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: color-mix(in srgb, var(--brand-accent) 20%, transparent);
+
+  --text: #REPLACE;
+  --text-80: rgba(255, 255, 255, 0.8);
+  --text-60: rgba(255, 255, 255, 0.6);
+  --text-40: rgba(255, 255, 255, 0.4);
+  --line: rgba(255, 255, 255, 0.1);
+
+  /* ---------------- BRAND: fontes ----------------
+     Substitua pelas famílias do projeto. Mantenha 2–3 papéis:
+     display (títulos), corpo (texto), mono (labels/eyebrow). */
+  --font-display: "REPLACE", sans-serif;
+  --font-body: "REPLACE", system-ui, sans-serif;
+  --font-mono: "REPLACE", monospace;
+
+  /* ---------------- BRAND: efeitos ----------------
+     Sombra/glow usam a cor de destaque; ajuste intensidade à marca. */
+  --glow: 0 0 30px color-mix(in srgb, var(--brand-accent) 15%, transparent);
+  --glow-strong: 0 0 50px color-mix(in srgb, var(--brand-accent) 35%, transparent);
+  --shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.8);
+
+  /* ---------------- STRUCTURE: espaçamento (base 8pt) ---------------- */
+  --s-1: 8px;
+  --s-2: 16px;
+  --s-3: 24px;
+  --s-4: 32px;
+  --s-5: 48px;
+  --s-6: 64px;
+  --s-7: 96px;
+  --s-8: 120px;
+
+  /* ---------------- STRUCTURE: raios ---------------- */
+  --radius-sm: 12px;   /* botões, faq items */
+  --radius-lg: 24px;   /* cards, blocos de destaque */
+  --radius-full: 999px; /* pills, badges */
+
+  /* ---------------- STRUCTURE: layout ---------------- */
+  --maxw: 1140px;
+  --maxw-narrow: 760px;
+  --maxw-card: 600px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------------- STRUCTURE: reset básico ---------------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { line-height: 1.1; font-weight: 400; }
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+ul { list-style: none; padding: 0; }
+
+/* ---------------- STRUCTURE: container ---------------- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--s-3);
+}
+.container--narrow { max-width: var(--maxw-narrow); }
+
+/* ---------------- STRUCTURE: ritmo de seção ---------------- */
+.section { padding-block: clamp(64px, 13vw, 120px); position: relative; }
+.section__head {
+  max-width: 700px;
+  margin-inline: auto;
+  text-align: center;
+  margin-bottom: clamp(40px, 7vw, 64px);
+}
+
+/* ---------------- STRUCTURE: tipografia fluida ---------------- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: var(--s-2);
+}
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 11vw, 4.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: var(--s-3);
+}
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 7vw, 3.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.section__lead {
+  margin-top: var(--s-2);
+  color: var(--text-60);
+  font-size: clamp(1rem, 3.4vw, 1.14rem);
+}
+.stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 15vw, 5rem);
+  line-height: 1;
+}
+
+/* ---------------- STRUCTURE: botões ---------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 14px 24px;
+  font-size: 1rem;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+}
+.btn--sm { padding: 7px 15px; font-size: 0.84rem; }
+.btn--lg { padding: 17px 30px; font-size: 1.02rem; }
+.btn--block { width: 100%; }
+.btn--primary {
+  background: var(--brand-accent);
+  color: #000; /* BRAND: ajuste para contraste sobre --brand-accent */
+  box-shadow: var(--glow);
+}
+.btn--primary:hover { transform: translateY(-2px); box-shadow: var(--glow-strong); }
+.btn--primary:active { transform: translateY(0); }
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.btn--ghost:hover { border-color: var(--brand-accent); color: var(--brand-accent); }
+.btn__arrow { transition: transform 0.25s var(--ease); }
+.btn:hover .btn__arrow { transform: translateX(4px); }
+
+/* ---------------- STRUCTURE: cards ---------------- */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--s-4);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--glow); }
+.card__icon {
+  display: grid;
+  place-items: center;
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--brand-accent) 12%, transparent);
+  color: var(--brand-accent);
+  margin-bottom: var(--s-3);
+}
+.card__icon svg { width: 28px; height: 28px; }
+
+/* ---------------- STRUCTURE: badge/pill ---------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.03);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--text-60);
+}
+
+/* ---------------- STRUCTURE: grid responsivo ---------------- */
+.grid-cards { display: grid; gap: var(--s-3); }
+
+@media (min-width: 640px) {
+  .grid-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .grid-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------------- STRUCTURE: CTA flutuante mobile ---------------- */
+.floating-cta {
+  position: fixed;
+  left: 16px; right: 16px; bottom: 16px;
+  z-index: 60;
+  text-align: center;
+  padding: 15px;
+  border-radius: var(--radius-sm);
+  transform: translateY(160%);
+  transition: transform 0.4s var(--ease);
+}
+.floating-cta.is-visible { transform: translateY(0); }
+@media (min-width: 640px) {
+  .floating-cta { display: none; }
+}
+
+/* ---------------- STRUCTURE: acessibilidade ---------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
