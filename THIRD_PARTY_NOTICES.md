@@ -16,3 +16,20 @@ product-changelog, product-hunt-launch, product-photography, prompt-engineering,
 seo-content-brief, social-media-carousel, storyboard-creation, talking-head-production,
 technical-blog-writing, twitter-thread-creation, video-ad-specs, video-prompting-guide,
 youtube-thumbnail-design.
+
+---
+
+## Added 2026-11-08
+
+- **business-growth-mp** (https://github.com/Zuttam/business-growth-mp, MIT, Matan Zutta):
+  meta-ads, pulse-hackernews, pulse-instagram, pulse-linkedin, pulse-reddit, pulse-x,
+  campaign-creation, campaign-execution, lead-research, list-building.
+  Modifications: the five community-pulse skills were renamed with a `pulse-` prefix
+  (folder and `name:`) to avoid generic names. Agents and hooks were not included.
+  These skills expect a browser-automation MCP (e.g. Claude in Chrome or Playwright MCP).
+- **Hedge-Edge-agentic** (https://github.com/Ryko1141/Hedge-Edge-agentic):
+  instagram-management (unmodified; written for the "Hedge Edge" prop-firm brand).
+- **instagram-agent-skill** (https://github.com/postzen-dev/instagram-agent-skill, MIT, PostZen):
+  ig-audit, ig-caption, ig-carousel, ig-comment, ig-dm, ig-human, ig-plan, ig-profile,
+  ig-publish, ig-reel, ig-reply, ig-repurpose, ig-story, ig-viral, plus `_extras/postzen-templates/voice.md`.
+  The PostZen MCP server (`.mcp.json`) was intentionally NOT installed.
